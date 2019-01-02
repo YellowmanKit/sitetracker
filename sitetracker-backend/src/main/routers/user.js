@@ -106,9 +106,7 @@ class UserRouter extends Router {
       let err, data, user, profile, appUser;
       [err, user, profile] = await User.getUserAndProfile(id, pw);
       if(err){
-        [err, appUser] = await mlanghku.login(id, pw);
-        if(err){ console.log(err); return res.json({ result: "failed" }); }
-        [err, user, profile] = await User.aquireNewAccountByAppAccount(appUser.attributes, pw);
+        return res.json({ result: "failed" });
       }
       //console.log(user);
       //console.log(profile);
