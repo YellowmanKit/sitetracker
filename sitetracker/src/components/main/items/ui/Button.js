@@ -295,7 +295,12 @@ class Button {
       backgroundImage: 'url(' + icon_camera + ')',
       paddingTop: size
     }}
-    return <input type="file" accept="image/*" capture="camera" style={style} alt='' onChange={event=>{this.actions.main.setPhoto({blob: event.target.files[0], url: URL.createObjectURL(event.target.files[0])})}}/>
+    return(
+      <input type="file" accept="image/*" capture="camera" style={style} alt=''
+      onChange={event=>{
+        this.actions.main.setPhoto({blob: event.target.files[0], url: URL.createObjectURL(event.target.files[0])});
+        this.actions.main.setGeoLocated('processing');
+      }}/>)
   }
 
   selectImage(size){

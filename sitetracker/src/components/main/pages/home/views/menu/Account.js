@@ -72,9 +72,6 @@ class Account extends View {
     const pwField = document.getElementById('pw');
     const pw = pwField? pwField.value: '';
 
-    const mlanghkuId = forceAccount? '': document.getElementById('mlanghkuId').value;
-    const mlanghkuPw = forceAccount? '': document.getElementById('mlanghkuPw').value;
-
     //console.log(newId)
     if(forceAccount && newId === 'DefaultId'){
       return this.failedMessage(['Failed to change! Please enter your new identity!', '變更失敗! 請輸入新的登入名稱!', '变更失败! 请输入新的登入名称!'])
@@ -108,9 +105,7 @@ class Account extends View {
       type: newType? newType: user.type,
       id: newId,
       pw: newPw.length >= 6? newPw: user.pw,
-      email: newEmail,
-      mlanghkuId: mlanghkuId? mlanghkuId: user.mlanghkuId,
-      mlanghkuPw: mlanghkuPw? mlanghkuPw: user.mlanghkuPw
+      email: newEmail
     });
 
   }
