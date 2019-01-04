@@ -3,20 +3,17 @@ import {geolocated} from 'react-geolocated';
 
 class GeoLocated extends React.Component {
 
-  componentWillReceiveProps(newProps){
-    const status = newProps.app.store.main.geoLocated;
-    if(status === 'processing'){
-      this.saveCoords(newProps);
-    }
+  componentDidMount(){
+    this.saveCoords();
   }
 
-  saveCoords(newProps){
+  saveCoords(){
     setTimeout(()=>{
       if(this.props.coords){
         console.log(this.props.coords);
-        newProps.app.actions.main.setGeoLocated(this.props.coords);
+        this.props.app.actions.main.setGeoLocated(this.props.coords);
       }else{
-        this.saveCoords(newProps);
+        this.saveCoords();
       }
     }, 1000);
   }

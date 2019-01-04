@@ -161,6 +161,7 @@ class Home extends View {
     }}
     const deadView = this.state.deadView;
     const view = this.state.view;
+    const geoLocated = this.store.main.geoLocated;
     //console.log(deadView);
     //console.log(view);
     return(
@@ -173,7 +174,7 @@ class Home extends View {
         <Notice app={this.app}/>
 
         <Enlarger app={this.app}/>
-        <GeoLocated app={this.app}/>
+        {geoLocated === 'processing' && <GeoLocated app={this.app}/>}
 
         <PrefabPicker app={this.app}/>
         <DefaultImagePicker app={this.app}/>

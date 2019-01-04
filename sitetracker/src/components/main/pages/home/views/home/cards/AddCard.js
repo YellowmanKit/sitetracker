@@ -13,7 +13,6 @@ class AddCard extends View {
     }
     this.card = this.store.cards.viewingCard;
     this.getIconUrl(props);
-    this.actions.main.setGeoLocated(null);
   }
 
   componentWillReceiveProps(newProps){

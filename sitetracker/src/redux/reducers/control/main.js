@@ -23,6 +23,7 @@ const mainReducer = (
   }, action)=>{
   switch (action.type) {
     case 'setGeoLocated':
+      //console.log(action.payload);
       return {...state, geoLocated: action.payload};
     case 'setPrefabPicker':
       return {...state, prefabPicker: action.payload};

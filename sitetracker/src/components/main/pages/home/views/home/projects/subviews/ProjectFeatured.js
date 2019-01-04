@@ -51,7 +51,11 @@ class ProjectFeatured extends SubView {
   }
 
   onAdd(){
-    return this.buttons.cellAdd(()=>{this.actions.content.pushView('addCard')})
+    return this.buttons.cellAdd(()=>{
+      this.actions.content.pushView('addCard');
+      //console.log('reset');
+      this.actions.main.setGeoLocated(null);
+    })
   }
 
   filterOptions(){
